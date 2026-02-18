@@ -1,0 +1,42 @@
+
+State #1:
+12*0
+0**0
+03*0
+Previous index: -1
+
+State #2:
+102*
+00**
+03*0
+Previous index: 0
+
+State #3:
+012*
+00**
+03*0
+Previous index: 1
+
+State #4:
+012*
+00**
+3*00
+Previous index: 5
+
+State #5:
+0100
+002*
+3***
+Previous index: 13
+
+State #6:
+0010
+002*
+3***
+Previous index: 25
+
+State #7:
+0001
+002*
+3***
+Previous index: 35

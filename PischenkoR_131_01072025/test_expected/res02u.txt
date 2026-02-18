@@ -1,0 +1,21 @@
+
+State #1:
+0
+0
+1
+*
+Previous index: -1
+
+State #2:
+0
+1
+*
+0
+Previous index: 0
+
+State #3:
+1
+*
+0
+0
+Previous index: 1

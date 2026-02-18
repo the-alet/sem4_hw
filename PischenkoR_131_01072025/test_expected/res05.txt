@@ -1,0 +1,30 @@
+
+State #1:
+12*0
+0**0
+0000
+Previous index: -1
+
+State #2:
+1000
+02*0
+0**0
+Previous index: 0
+
+State #3:
+0100
+02*0
+0**0
+Previous index: 3
+
+State #4:
+0010
+02*0
+0**0
+Previous index: 9
+
+State #5:
+0001
+02*0
+0**0
+Previous index: 21

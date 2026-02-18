@@ -1,0 +1,12 @@
+
+State #1:
+00
+1*
+**
+Previous index: -1
+
+State #2:
+10
+**
+0*
+Previous index: 0
