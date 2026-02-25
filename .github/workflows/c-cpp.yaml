@@ -1,0 +1,35 @@
+name: C++ CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+      fail-fast: false
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build with MSBuild
+      run: |
+        msbuild PischenkoR_131_project.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=x64
+
+    - name: Run tests (only for Debug)
+      if: matrix.configuration == 'Debug'
+      run: |
+        testrun.bat
+        testresult.bat
+      shell: cmd
+      working-directory: ./
