@@ -23,10 +23,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
 *.user
 .vs
 x64
+testlog.txt
 
-
-
+test_actual/
