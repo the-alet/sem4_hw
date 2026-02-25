@@ -22,9 +22,21 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    - name: Build with MSBuild
+    - name: Find and Build with MSBuild
+      shell: pwsh
       run: |
-        msbuild PischenkoR_131_project.sln /p:Configuration=${{ matrix.configuration }} /p:Platform=x64
+        $slnFile = Get-ChildItem -Recurse -Filter *.sln | Select-Object -First 1
+        if (-not $slnFile) {
+          Write-Host "No .sln file found. Trying to build with .vcxproj directly..."
+          $vcxprojFile = Get-ChildItem -Recurse -Filter *.vcxproj | Select-Object -First 1
+          if (-not $vcxprojFile) {
+            Write-Error "No Visual Studio project file found."
+            exit 1
+          }
+          msbuild $vcxprojFile.FullName /p:Configuration=${{ matrix.configuration }} /p:Platform=x64
+        } else {
+          msbuild $slnFile.FullName /p:Configuration=${{ matrix.configuration }} /p:Platform=x64
+        }
 
     - name: Run tests (only for Debug)
       if: matrix.configuration == 'Debug'
