@@ -37,11 +37,12 @@ jobs:
         } else {
           msbuild $slnFile.FullName /p:Configuration=${{ matrix.configuration }} /p:Platform=x64
         }
-
+        
     - name: Run tests (only for Debug)
       if: matrix.configuration == 'Debug'
       run: |
+        Get-ChildItem -Recurse -Filter *.bat
         testrun.bat
         testresult.bat
       shell: cmd
-      working-directory: ./
+      working-directory: ./PischenkoR_131_01072025
