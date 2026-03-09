@@ -5,6 +5,8 @@
 #include "search.h"
 
 #define MAX_LEN 100000
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#define max(a,b) (((a) > (b)) ? (a) : (b))
 
 enum Direction { dirUp = 1, dirRight = 2, dirDown = 3, dirLeft = 4};
 
