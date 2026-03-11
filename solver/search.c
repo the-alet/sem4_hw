@@ -567,6 +567,10 @@ int canMove(const State *state, enum Direction dir, int index, FiguresDictionary
     return 0;
 }
 
+int compareFiguresWrapper(const void* a, const void* b) {
+    return compareFigures((const Figure*)a, (const Figure*)b);
+}
+
 int compareFigures(const Figure *f1, const Figure *f2) {
     if (f1->y > f2->y) {
         return 1;
@@ -642,7 +646,7 @@ State move(const State *state, enum Direction dir, int index, FiguresDictionary 
 
     minNIndex = min(minNIndex, index);
     maxNIndex = max(maxNIndex, index);
-    qsort(&newState.array[minNIndex], maxNIndex - minNIndex + 1, sizeof(Figure), compareFigures);
+    qsort(&newState.array[minNIndex], maxNIndex - minNIndex + 1, sizeof(Figure), compareFiguresWrapper);
 
     return newState;
 }
