@@ -62,7 +62,8 @@ jobs:
       
       - name: Compile Release
         if: matrix.config == 'release'
-        run: gcc -O2 -o solver field.c input.c main.c output.c search.c
+        run: ls
+        #run: gcc -O2 -o solver field.c input.c main.c output.c search.c
       
       - name: Make test scripts executable
         if: matrix.config == 'debug'
