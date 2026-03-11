@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include "field.h"
 
-int isDebug;
-FILE* outFile;
+extern int isDebug;
+extern FILE* outFile;
 
 void print2DArrayToFile(char *fileName, char **array, int height, int width);
 void output(const char *fileName, Field F);
