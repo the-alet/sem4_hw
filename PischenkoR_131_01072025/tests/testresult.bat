@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "actual=test_actual"
-set "expected=test_expected"
+set "actual=..\test_actual"
+set "expected=..\test_expected"
 set "logfile=testlog.txt"
 
 set "files=res01u.txt res01d.txt res01l.txt res01r.txt res02u.txt res02d.txt res02l.txt res02r.txt res03u.txt res03d.txt res03l.txt res03r.txt res04u.txt res04d.txt res04l.txt res04r.txt res05.txt res06.txt res07.txt res08.txt res09.txt res10.txt"

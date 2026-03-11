@@ -1,48 +1,40 @@
 
-State #1:
-13*0
-2**0
-*4*0
-Previous index: -1
+ABB#
+DBB#
+DCC#
 
-State #2:
-103*
-20**
-*4*0
-Previous index: 0
 
-State #3:
-013*
-20**
-*4*0
-Previous index: 1
+A#BB
+D#BB
+DCC#
 
-State #4:
-213*
-*0**
-04*0
-Previous index: 3
 
-State #5:
-213*
-*0**
-4*00
-Previous index: 5
+#ABB
+D#BB
+DCC#
 
-State #6:
-2100
-*03*
-4***
-Previous index: 9
 
-State #7:
-2010
-*03*
-4***
-Previous index: 19
+DABB
+D#BB
+#CC#
 
-State #8:
-2001
-*03*
-4***
-Previous index: 28
+
+DABB
+D#BB
+CC##
+
+
+DA##
+D#BB
+CCBB
+
+
+D#A#
+D#BB
+CCBB
+
+
+D##A
+D#BB
+CCBB
+

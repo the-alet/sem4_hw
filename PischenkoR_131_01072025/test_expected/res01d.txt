@@ -1,18 +1,15 @@
 
-State #1:
-1
-0
-0
-Previous index: -1
+A
+#
+#
 
-State #2:
-0
-1
-0
-Previous index: 0
 
-State #3:
-0
-0
-1
-Previous index: 1
+#
+A
+#
+
+
+#
+#
+A
+

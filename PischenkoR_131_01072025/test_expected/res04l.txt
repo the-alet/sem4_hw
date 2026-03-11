@@ -1,10 +1,8 @@
 
-State #1:
-01*
-0**
-Previous index: -1
+#AA
+#AA
 
-State #2:
-1*0
-**0
-Previous index: 0
+
+AA#
+AA#
+
