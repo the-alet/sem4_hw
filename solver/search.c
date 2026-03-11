@@ -567,9 +567,7 @@ int canMove(const State *state, enum Direction dir, int index, FiguresDictionary
     return 0;
 }
 
-int compareFiguresWrapper(const void* a, const void* b) {
-    return compareFigures((const Figure*)a, (const Figure*)b);
-}
+
 
 int compareFigures(const Figure *f1, const Figure *f2) {
     if (f1->y > f2->y) {
@@ -586,6 +584,10 @@ int compareFigures(const Figure *f1, const Figure *f2) {
     }
     return 0;
 } 
+
+int compareFiguresWrapper(const void* a, const void* b) {
+    return compareFigures((const Figure*)a, (const Figure*)b);
+}
 
 State move(const State *state, enum Direction dir, int index, FiguresDictionary *figDict) {
     State newState = *state;
