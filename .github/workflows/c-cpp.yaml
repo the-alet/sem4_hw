@@ -1,92 +1,48 @@
-name: C++ CI
+name: solver CI
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ "main" ]
-
-jobs:      
+    branches: [ main, master ]
+jobs:
   build-windows:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-      fail-fast: false
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup MinGW
+        uses: egor-tensin/setup-mingw@v2
+        with:
+          platform: x64
+          
+      - name: Compile project with GCC
+        run: gcc -o solver.exe field.c input.c main.c output.c search.c
+        
+      - name: Run tests (bat files)
+        shell: cmd
+        run: |
+          cd tests
+          call testrun.bat
+          call testresult.bat
+          if errorlevel 1 exit /b 1
 
-    - name: Setup MSYS2
-      uses: msys2/setup-msys2@v2
-      with:
-        update: true
-        install: mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-make
-
-    - name: Configure CMake
-      shell: msys2 {0}
-      run: |
-        mkdir -p build
-        cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${{ matrix.configuration }} -G "MinGW Makefiles"
-
-    - name: Build
-      shell: msys2 {0}
-      run: |
-        cd build
-        cmake --build . --config ${{ matrix.configuration }} -- -j$(nproc)
-
-    # - name: Run tests (only for Debug)
-    #   if: matrix.configuration == 'Debug'
-    #   shell: msys2 {0}
-    #   working-directory: ./build
-    #   run: |
-    #       call ../tests/testrun.bat
-    #       call ../tests/testresult.bat
-
+          
   build-ubuntu:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-      fail-fast: false
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential cmake
-
-    - name: Configure CMake
-      run: |
-        mkdir -p build
-        cd build
-        cmake .. -DCMAKE_BUILD_TYPE=${{ matrix.configuration }}
-
-    - name: Build
-      run: |
-        cd build
-        cmake --build . --config ${{ matrix.configuration }} -- -j$(nproc)
-
-    # - name: Run tests (only for Debug)
-    #   if: matrix.configuration == 'Debug'
-    #   working-directory: ./build
-    #   run: |
-    #     set -e
-    #     if [ -d "tests" ]; then
-    #       echo "Running test executables from tests/ directory"
-    #       find tests -type f -executable | while read exe; do
-    #         echo "Executing $exe"
-    #         "$exe"
-    #       done
-    #     else
-    #       echo "tests/ directory not found. Searching for executables containing 'test' in name..."
-    #       find . -type f -executable -iname "*test*" \
-    #         -not -path "./CMakeFiles/*" \
-    #         -not -path "./_deps/*" | while read exe; do
-    #         echo "Executing $exe"
-    #         "$exe"
-    #       done
-    #     fi
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Compile project with GCC
+        run: gcc -o solver field.c input.c main.c output.c search.c
+        
+      - name: Make test scripts executable
+        run: chmod +x tests/*.sh
+        
+      - name: Run tests (sh files)
+        run: |
+          cd tests
+          ./testrun.sh
+          ./testresult.sh
