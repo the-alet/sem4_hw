@@ -5,11 +5,12 @@ logfile="testlog.txt"
 files="res01u.txt res01d.txt res01l.txt res01r.txt res02u.txt res02d.txt res02l.txt res02r.txt res03u.txt res03d.txt res03l.txt res03r.txt res04u.txt res04d.txt res04l.txt res04r.txt res05.txt res06.txt res07.txt res08.txt res09.txt res10.txt"
 > "$logfile"
 if [ ! -d "$actual" ]; then
-    echo "Error: folder '$actual' not found." >> "$logfile"
+    echo "Error: folder '$actual' not found."
     exit 1
 fi
 if [ ! -d "$expected" ]; then
     echo "Error: folder '$expected' not found." >> "$logfile"
+    echo "Error: folder '$expected' not found."
     exit 1
 fi
 diff_count=0
@@ -45,6 +46,7 @@ for file in $files; do
 done
 echo >> "$logfile"
 echo "Summary: differences: $diff_count, missing: $missing_count" >> "$logfile"
+echo "Summary: differences: $diff_count, missing: $missing_count"
 if [ $diff_count -ne 0 ] || [ $missing_count -ne 0 ]; then
     exit 1
 fi

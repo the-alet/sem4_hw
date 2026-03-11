@@ -10,10 +10,12 @@ type nul > "%logfile%"
 
 if not exist "%actual%\" (
     echo Error: folder "%actual%" not found. >> "%logfile%"
+    echo Error: folder "%actual%" not found.
     exit /b 1
 )
 if not exist "%expected%\" (
     echo Error: folder "%expected%" not found. >> "%logfile%"
+    echo Error: folder "%expected%" not found.
     exit /b 1
 )
 
@@ -56,6 +58,7 @@ for %%f in (%files%) do (
 
 echo. >> "%logfile%"
 echo Summary: differences: %diff_count%, missing: %missing_count% >> "%logfile%"
+echo Summary: differences: %diff_count%, missing: %missing_count%
 
 if %diff_count% neq 0 exit /b 1
 if %missing_count% neq 0 exit /b 1

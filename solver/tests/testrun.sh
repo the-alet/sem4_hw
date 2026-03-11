@@ -23,3 +23,5 @@ $SOLVER ../test_input/test07.txt ../test_actual/res07.txt
 $SOLVER ../test_input/test08.txt ../test_actual/res08.txt
 $SOLVER ../test_input/test09.txt ../test_actual/res09.txt
 $SOLVER ../test_input/test10.txt ../test_actual/res10.txt
+
+echo "All tests passed"

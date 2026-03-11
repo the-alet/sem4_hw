@@ -29,3 +29,5 @@
 ..\solver.exe ..\test_input\test09.txt ..\test_actual\res09.txt
 
 ..\solver.exe ..\test_input\test10.txt ..\test_actual\res10.txt
+
+echo "All tests passed"
