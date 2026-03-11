@@ -27,13 +27,13 @@ jobs:
         working-directory: solver
         if: matrix.config == 'debug'
         shell: bash
-        run: gcc -g -o solver.exe field.c input.c main.c output.c search.c
+        run: gcc -w -std=c11 -g -o solver.exe field.c input.c main.c output.c search.c
       
       - name: Compile Release
         working-directory: solver
         if: matrix.config == 'release'
         shell: bash
-        run: gcc -O2 -o solver.exe field.c input.c main.c output.c search.c
+        run: gcc -w -std=c11 -O2 -o solver.exe field.c input.c main.c output.c search.c
       
       - name: Run tests - Debug only
         working-directory: solver
@@ -58,12 +58,12 @@ jobs:
       - name: Compile Debug
         working-directory: solver
         if: matrix.config == 'debug'
-        run: gcc -g -o solver field.c input.c main.c output.c search.c
+        run: gcc -w -std=c11 -g -o solver field.c input.c main.c output.c search.c
       
       - name: Compile Release
         working-directory: solver
         if: matrix.config == 'release'
-        run: gcc -O2 -o solver field.c input.c main.c output.c search.c
+        run: gcc -w -std=c11 -O2 -o solver field.c input.c main.c output.c search.c
       
       - name: Make test scripts executable
         working-directory: solver
