@@ -41,8 +41,7 @@ jobs:
     - name: Run tests (only for Debug)
       if: matrix.configuration == 'Debug'
       run: |
-        Get-ChildItem -Recurse -Filter *.bat
-        testrun.bat
-        testresult.bat
+        call testrun.bat
+        call testresult.bat
       shell: cmd
       working-directory: ./PischenkoR_131_01072025
