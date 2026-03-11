@@ -72,7 +72,7 @@ gcc -o solver.exe main.c field.c input.c output.c search.c
 ./solver.exe input.txt output.txt
 ```
 
-Если аргумент не указан, по умолчанию чтение осуществляется из стандартного ввода, запись производится в result.txt.
+Если аргумент не указан, по умолчанию чтение осуществляется из файла input.txt, запись производится в result.txt.
 
 
 
