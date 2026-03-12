@@ -1,8 +1,0 @@
-5 4
-ABBC
-ABBC
-DEEF
-DGHF
-I##J
-1
-4 2 B
