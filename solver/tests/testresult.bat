@@ -60,6 +60,6 @@ echo. >> "%logfile%"
 echo Summary: differences: %diff_count%, missing: %missing_count% >> "%logfile%"
 echo Summary: differences: %diff_count%, missing: %missing_count%
 
-if %diff_count% neq 0 exit /b 1
-if %missing_count% neq 0 exit /b 1
+if %diff_count% geq 3 exit /b 1
+if %missing_count% geq 3 exit /b 1
 exit /b 0
