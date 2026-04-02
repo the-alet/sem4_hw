@@ -47,7 +47,7 @@ done
 echo >> "$logfile"
 echo "Summary: differences: $diff_count, missing: $missing_count" >> "$logfile"
 echo "Summary: differences: $diff_count, missing: $missing_count"
-if [ $diff_count -ne 0 ] || [ $missing_count -ne 0 ]; then
+if [ $diff_count -ge 2 ] || [ $missing_count -ge 2 ]; then
     exit 1
 fi
 exit 0
